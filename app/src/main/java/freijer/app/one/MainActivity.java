@@ -25,8 +25,8 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    protected int simbol_lenght = 0;
-    protected int count_simbol_up = 0;
+    protected int simbol_lenght;
+    protected int count_simbol_up;
 
     public int getSimbol_lenght() {
         return simbol_lenght;
@@ -72,10 +72,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        Alfas.add("т");
-        Alfas.add("то");
-        Alfas.add("тор");
-        Alfas.add("торт");
+//        Alfas.add("т");
+//        Alfas.add("то");
+//        Alfas.add("тор");
+//        Alfas.add("торт");
         Alfas.add("торти");
         Alfas.add("тортик");
         Alfas.add("тортики");
@@ -115,28 +115,24 @@ public class MainActivity extends AppCompatActivity {
         setCount_word_plus(plusLength);
 
 
-        count_plus.setText(""+getCount_word_plus());
-//        max_plus.setText(""+Counnter_word_plus());
-
-
-        simbol_lenght = 2;
-
-        if (simbol_lenght >2) {
-            count_simbol_up = count_simbol_up+1;
-
-        }
-
-
-        Log.d("test_-1", "идея: " + count_simbol_up);
-        Log.d("test_-po", "масс: " + String.valueOf(Buffer.size()));
-
+        counterUo(plusLength);
     }
 
+//    protected void counterUo(int income){
+//        if (income >2) {
+//            for(int i=0; i<2; i++) {
+//                Buffer.add("" + income);
+//            }
+//        }
+//        Log.d("test_-po", "размер: " + (Buffer.size()));
+//    }
 
-
-
-
-
+    protected void counterUo(int income){
+        if (income >2) {
+            count_simbol_up++;
+        }
+        Log.d("test_-po", "размер: " + (count_simbol_up));
+    }
 
 
     public int CountCorrectSeqLen(List<String> data) {
@@ -179,7 +175,6 @@ public class MainActivity extends AppCompatActivity {
         minusLength = Math.max(minusLength, currentLength);
         return minusLength;
     }// слов одинаковой длинны уменьшение
-
 
 
 
